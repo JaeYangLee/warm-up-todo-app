@@ -1,4 +1,4 @@
-const pool = require("../Database/database");
+const pool = require("../database/toDoDatabase.js");
 
 const getAllTodos = async () => {
   const result = await pool.query("SELECT * FROM todos");
@@ -28,7 +28,7 @@ const deleteTodo = async (todo_id) => {
   return result.rows[0];
 };
 
-module.export = {
+module.exports = {
   getAllTodos,
   createTodo,
   updateTodo,
