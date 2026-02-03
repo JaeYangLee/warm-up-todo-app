@@ -8,7 +8,7 @@ const getAllTodos = async () => {
 const createTodo = async (description) => {
   const result = await pool.query(
     "INSERT INTO todos(description) VALUES ($1) RETURNING *",
-    [description]
+    [description],
   );
   return result.rows[0];
 };
@@ -16,7 +16,7 @@ const createTodo = async (description) => {
 const updateTodo = async (todo_id, description) => {
   const result = await pool.query(
     "UPDATE todos SET description = $2 WHERE todo_id = $1 RETURNING *",
-    [todo_id, description]
+    [todo_id, description],
   );
   return result.rows[0];
 };
@@ -24,7 +24,7 @@ const updateTodo = async (todo_id, description) => {
 const deleteTodo = async (todo_id) => {
   const result = await pool.query(
     "DELETE FROM todos WHERE todo_id = $1 RETURNING *",
-    [todo_id]
+    [todo_id],
   );
   return result.rows[0];
 };
