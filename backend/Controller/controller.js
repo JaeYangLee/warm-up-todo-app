@@ -16,7 +16,7 @@ const getAllTodos = async (req, res) => {
 const createTodo = async (req, res) => {
   try {
     const { description } = req.body;
-    const newTodo = await todoModel.createTodo();
+    const newTodo = await todoModel.createTodo(description);
     res.status(200).json({
       message: "[controller.js]: Todo Created Successfully!",
       data: newTodo,
