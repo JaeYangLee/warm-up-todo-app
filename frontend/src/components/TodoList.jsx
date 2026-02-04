@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 function todoList({ todos = [], onUpdate, onDelete }) {
   return (
     <>
-      <div className="flex-col items-center justify-center w-screen h-screen pt-16">
+      <div className="flex-col items-center justify-center w-screen h-screen bg-yellow-100 pt-14">
         <ul className="w-full text-center">
           {todos.length === 0 ? (
             <h1>Tasks empty...</h1>
