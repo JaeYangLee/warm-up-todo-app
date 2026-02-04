@@ -31,16 +31,12 @@ function App() {
     }
   };
 
-  const updateTodo = async (todo_id, description) => {
+  const updateTodo = async (id, description) => {
     try {
-      const res = await axios.put(`http://localhost:5000/todos/${todo_id}`, {
+      const res = await axios.put(`http://localhost:5000/todos/${id}`, {
         description,
       });
-      setTodos(
-        todos.map((todos) =>
-          todos.todo_id === todo_id ? res.data.data : todos,
-        ),
-      );
+      setTodos(todos.map((todo) => (todo.todo_id === id ? res.data.data : id)));
     } catch (err) {
       console.error("[frontend]: Error creating new todo!", err.message);
     }

@@ -1,19 +1,26 @@
 import React from "react";
 
 function TodoItem({ todos, onUpdate, onDelete }) {
+  const handleUpdate = () => {
+    const newDescription = prompt("Edit task:", todos.description);
+
+    if (newDescription) {
+      onUpdate(todos.todo_id, newDescription);
+    }
+  };
   return (
     <>
-      <li className="flex items-center justify-between w-full gap-2 px-2">
-        {todos.description}
+      <li className="flex items-center justify-between w-full gap-2 px-2 py-4">
+        {`- ${todos.description}`}
         <section className="flex flex-row items-center justify-center gap-2">
           <button
-            onClick={onUpdate}
+            onClick={handleUpdate}
             className="px-2 border rounded shadow-[2px_2px_0px_0px]"
           >
-            Update
+            Edit
           </button>
           <button
-            onClick={onDelete}
+            onClick={() => onDelete(todos.todo_id)}
             className="px-2 border rounded shadow-[2px_2px_0px_0px]"
           >
             Delete
